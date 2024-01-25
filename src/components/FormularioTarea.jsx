@@ -9,9 +9,12 @@ const FormularioTarea = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("dentro del evento submit");
-    setTareas([...tareas,tarea]);
-    setTarea('');
+    if (tarea.trim().length > 0){
+        setTareas([...tareas,tarea]);
+        setTarea('');
+    }else{
+        alert("Debes ingresar al menos una tarea")
+    }
   };
 
   const borrarTarea = (nombreTarea)=>{
